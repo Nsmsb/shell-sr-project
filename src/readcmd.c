@@ -41,7 +41,7 @@ static char *readline(void)
 	size_t buf_len = 16;
 	char *buf = xmalloc(buf_len * sizeof(char));
 
-	if (fgets(buf, buf_len, stdin) == NULL) {
+	if (fgets(buf, buf_len, stdin) == NULL || strcmp(buf, "quit\n") == 0 || strcmp(buf, "q\n") == 0) {
 		free(buf);
 		return NULL;
 	}
