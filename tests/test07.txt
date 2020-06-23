@@ -1,0 +1,5 @@
+#
+# test07.txt -IO simple
+#
+ls -a >toto
+wc -l < tests/log.out

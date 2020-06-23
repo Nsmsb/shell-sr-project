@@ -1,0 +1,5 @@
+#
+# test05.txt -pipe simple
+#
+ls -a
+ls | wc

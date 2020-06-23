@@ -1,0 +1,4 @@
+#
+# test09.txt - redirection IO en entree/sortie de pipe
+#
+ls < fichier1 | grep en > fichier2

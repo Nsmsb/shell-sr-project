@@ -45,6 +45,7 @@ static char *readline(void)
 		free(buf);
 		return NULL;
 	}
+
 	
 	if (feof(stdin)) { /* End of file (ctrl-d) */
 	    fflush(stdout);
@@ -123,6 +124,11 @@ static char **split_in_words(char *line)
 	}
 	tab = xrealloc(tab, (l + 1) * sizeof(char *));
 	tab[l++] = 0;
+    // for (int i = 0; tab[i] != 0; i++)
+    // {
+    //     printf("%s ", tab[i]);
+    // }
+    
 	return tab;
 }
 
@@ -189,6 +195,7 @@ struct cmdline *readcmd(void)
 	s->in = 0;
 	s->out = 0;
 	s->seq = 0;
+    s->seq_len = 0;
 
 	i = 0;
 	while ((w = words[i++]) != 0) {
@@ -228,6 +235,7 @@ struct cmdline *readcmd(void)
 			seq[seq_len++] = cmd;
 			seq[seq_len] = 0;
 
+
 			cmd = xmalloc(sizeof(char *));
 			cmd[0] = 0;
 			cmd_len = 0;
@@ -250,6 +258,7 @@ struct cmdline *readcmd(void)
 	} else
 		free(cmd);
 	free(words);
+    s->seq_len = seq_len;
 	s->seq = seq;
 	return s;
 error:

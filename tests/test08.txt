@@ -1,0 +1,8 @@
+#
+# test08.txt - gestion d'erreurs
+#
+lf
+wc -k
+man lavieestdure:'( 
+ls *
+ls /root
